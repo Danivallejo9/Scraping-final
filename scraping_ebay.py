@@ -56,7 +56,13 @@ def main_function():
     driver.quit()
 
     # Devuelve los datos en formato DataFrame
-    return pd.DataFrame({
+    data = pd.DataFrame({
         'Producto': productos,
         'Precio': precios
     })
+
+    # Guardar el DataFrame como CSV
+    data.to_csv('productos_ebay.csv', index=False, encoding='utf-8')
+    print("Archivo CSV guardado como 'productos_ebay.csv'.")
+
+    return data
